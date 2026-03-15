@@ -13,12 +13,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import os
+
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from octofit_tracker.views import UserViewSet, TeamViewSet, ActivityViewSet, WorkoutViewSet, LeaderboardViewSet
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+
+CODESPACE_NAME = os.environ.get('CODESPACE_NAME')
+CODESPACE_BASE_URL = (
+    f"https://{CODESPACE_NAME}-8000.app.github.dev" if CODESPACE_NAME else None
+)
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -29,12 +36,26 @@ router.register(r'leaderboard', LeaderboardViewSet)
 
 @api_view(['GET'])
 def api_root(request, format=None):
+    """Return API root links.
+
+    If running inside a GitHub Codespace, build absolute links using the
+    $CODESPACE_NAME proxy domain to avoid HTTPS/certificate issues.
+    """
+
+    if CODESPACE_BASE_URL:
+        base = CODESPACE_BASE_URL
+    else:
+        base = request.build_absolute_uri('/')[:-1]
+
+    def url(path: str) -> str:
+        return f"{base}{path}"
+
     return Response({
-        'users': '/api/users/',
-        'teams': '/api/teams/',
-        'activities': '/api/activities/',
-        'workouts': '/api/workouts/',
-        'leaderboard': '/api/leaderboard/',
+        'users': url('/api/users/'),
+        'teams': url('/api/teams/'),
+        'activities': url('/api/activities/'),
+        'workouts': url('/api/workouts/'),
+        'leaderboard': url('/api/leaderboard/'),
     })
 
 urlpatterns = [
