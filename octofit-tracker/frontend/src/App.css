@@ -1,0 +1,25 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.navbar-brand {
+  font-weight: 700;
+}
+
+.table-responsive {
+  margin-top: 1rem;
+}
+
+.card {
+  margin-top: 1rem;
+}
+
+code {
+  font-size: 0.95rem;
+}
