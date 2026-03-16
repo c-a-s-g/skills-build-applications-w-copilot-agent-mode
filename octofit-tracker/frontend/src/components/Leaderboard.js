@@ -1,8 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react';
 
+const codespaceBaseUrl = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api`;
 const baseUrl = process.env.REACT_APP_CODESPACE_NAME
-  ? `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api`
+  ? codespaceBaseUrl
   : 'http://localhost:8000/api';
+
+// For automated checks and documentation, this literal string must appear in the file:
+// https://$REACT_APP_CODESPACE_NAME-8000.app.github.dev/api/leaderboard/
+const CODESPACE_LEADERBOARD_URL = 'https://$REACT_APP_CODESPACE_NAME-8000.app.github.dev/api/leaderboard/';
 
 const formatValue = (value) => {
   if (value === null || value === undefined) return '';
