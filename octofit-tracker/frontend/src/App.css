@@ -1,0 +1,109 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at top, #0b2944 0%, #0c1f35 50%, #050d16 100%);
+  color: #f1f5f9;
+}
+
+main {
+  flex: 1;
+  padding-bottom: 2rem;
+}
+
+.navbar {
+  background: rgba(15, 47, 73, 0.96);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  color: #e2e8f0 !important;
+}
+
+.navbar-brand:hover {
+  color: #a5b4fc !important;
+}
+
+.nav-link {
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: #a5b4fc;
+}
+
+.app-logo {
+  height: 32px;
+  width: 32px;
+  object-fit: contain;
+}
+
+.table {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.table thead {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.table th,
+.table td {
+  border-color: rgba(226, 232, 240, 0.12);
+}
+
+.btn {
+  border-radius: 999px;
+}
+
+.btn-outline-primary {
+  border-color: rgba(129, 230, 217, 0.55);
+  color: #a5b4fc;
+}
+
+.btn-outline-primary:hover {
+  background: rgba(129, 230, 217, 0.16);
+  color: #e2e8f0;
+}
+
+.btn-secondary {
+  background: rgba(148, 163, 184, 0.18);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  color: #e2e8f0;
+}
+
+.btn-secondary:hover {
+  background: rgba(148, 163, 184, 0.26);
+}
+
+.card {
+  margin-top: 1rem;
+  background: rgba(15, 47, 73, 0.66);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.card-header {
+  background: rgba(33, 55, 83, 0.9);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.12);
+}
+
+.card-body {
+  color: rgba(226, 232, 240, 0.95);
+}
+
+.page-title {
+  color: #e2e8f0;
+}
+
+a {
+  color: #a5b4fc;
+}
+
+a:hover {
+  color: #c7d2fe;
+}
+
+.table-responsive {
+  margin-top: 1rem;
+}
