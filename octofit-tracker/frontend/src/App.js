@@ -5,14 +5,16 @@ import Leaderboard from './components/Leaderboard';
 import Teams from './components/Teams';
 import Users from './components/Users';
 import Workouts from './components/Workouts';
+import octoLogo from './assets/octofitapp-small.svg';
 
 function App() {
   return (
     <div className="App">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
-          <NavLink className={({ isActive }) => `navbar-brand${isActive ? ' active' : ''}`} to="/">
-            OctoFit Tracker
+          <NavLink className={({ isActive }) => `navbar-brand d-flex align-items-center${isActive ? ' active' : ''}`} to="/">
+            <img src={octoLogo} alt="OctoFit" className="app-logo me-2" />
+            <span>OctoFit Tracker</span>
           </NavLink>
           <button
             className="navbar-toggler"
@@ -63,7 +65,7 @@ function App() {
             path="/"
             element={
               <div>
-                <h1>Welcome to OctoFit Tracker</h1>
+                <h1 className="page-title">Welcome to OctoFit Tracker</h1>
                 <p>
                   Use the navigation menu to view activities, workouts, teams,
                   users, and the leaderboard.

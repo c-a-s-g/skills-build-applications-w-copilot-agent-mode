@@ -79,7 +79,7 @@ const Activities = () => {
     <div className="container py-4">
       <div className="card">
         <div className="card-header d-flex justify-content-between align-items-center">
-          <h2 className="mb-0">Activities</h2>
+          <h2 className="mb-0 page-title">Activities</h2>
           <div>
             <button
               type="button"
